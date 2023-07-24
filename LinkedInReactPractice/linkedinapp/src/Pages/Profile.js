@@ -24,17 +24,18 @@ const Profile = () => {
     graduationYear: "",
   });
 
-  useEffect(() => {
-    localStorage.setItem("about", about);
-  }, [about]);
+  // useEffect(() => {
+  //   localStorage.setItem("about", about);
+  // }, [about]);
 
-  useEffect(() => {
-    localStorage.setItem("newSkill", JSON.stringify(skills));
-  }, [newSkill]);
+  // useEffect(() => {
+  //   var i=0;
+  //   localStorage.setItem("newSkill", (skills.map(num=>(num))));
+  // }, [newSkill]);
 
-  useEffect(() => {
-    localStorage.setItem("newEducation", JSON.stringify(newEducation));
-  }, [{newEducation}]);
+  // useEffect(() => {
+  //   localStorage.setItem("newEducation", JSON.stringify(newEducation));
+  // }, [{newEducation}]);
 
   // useEffect(() => {
   //   localStorage.setItem("about", about);

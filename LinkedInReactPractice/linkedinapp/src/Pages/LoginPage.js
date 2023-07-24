@@ -18,8 +18,10 @@ const LoginPage = () => {
   const handleLogin = () => {
     if (username === 'demo' && password === 'demo') {
       dispatch(loginSuccess());
+      Navigate('/header')
       Navigate('/dashboard');
     }
+    else alert("Invalid Username or Password");
   };
 
   if (isLoggedIn) {

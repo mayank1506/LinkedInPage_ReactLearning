@@ -1,53 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import "./Profile.css";
+import Skills from "./Home/Skills";
+import Education from "./Home/Education";
+import About from "./Home/About";
+import {
+  updateProfile,
+} from "./redux/actions";
 import Header from "./Header";
-import "./Dashboard.css";
 
-function Dashboard() {
+
+const Profile = () => {
+  const user = useSelector((state) => state.user);
+  const education = useSelector((state) => state.education);
+  const dispatch = useDispatch();
+
+  const [editing, setEditing] = useState(false);
+
+  const handleSaveProfile = () => {
+    // dispatch(updateProfile({ about }));
+    setEditing(false);
+  };
+
+
+ 
+  
   return (
     <>
-      <Header />
-      <h1>Please go to the Profile</h1>
-      <div>Dashboard page</div>
-      <div className="homepage">
-      <header>
+    <Header/>
+    <div className="container">
+      <div className="profile-section">
+        <h2>Profile</h2>
+        {editing ? (
+          <button onClick={handleSaveProfile}>Save</button>
+        ) : (
+          <button onClick={() => setEditing(true)}>Edit</button>
+          
+        )}
+        <About edit={editing}/>
+        <Skills edit={editing} />
         
-        <h1>Welcome to My LinkedIn App</h1>
-      </header>
-      <div className="profile">
-        <img src="C:\Users\HP\Desktop\LinkedInPage_ReactLearning\LinkedInReactPractice\linkedinapp\public\MYPICTURE.jpeg" />
-        <h2>Mayank Vishwakarma</h2>
-        <p>Associate Software Engineer | Techsophy Solutions</p>
-      </div>
-      <div className="summary">
-        <h2>Summary</h2>
-        <p>
-          Hi, I'm Mayank. I am a passionate and results-driven professional. I thrive in fast-paced environments and enjoy taking on new challenges. Let's connect and explore potential opportunities!
-        </p>
-      </div>
-      <div className="experience">
-        <h2>Experience</h2>
-        <div className="job">
-          <h3>Job Title</h3>
-          <p>Techsophy Solutions Pvt LTD</p>
-          <p>Duration: Jan 2023 - Present</p>
-          <ul>
-            <li>Associate Software Engineer</li>
-            <li>Software Intern</li>
-          </ul>
-        </div>
-      </div>
-      <div className="skills">
-        <h2>Skills</h2>
-        <ul>
-          <li>Java</li>
-          <li>Javascript</li>
-          <li>ReactJS</li>
-        </ul>
       </div>
     </div>
-  
     </>
   );
-}
+};
 
-export default Dashboard;
+export default Profile;
