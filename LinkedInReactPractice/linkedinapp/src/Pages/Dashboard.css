@@ -1,0 +1,127 @@
+/* CSS for HomePage Component */
+.homepage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile */
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .profile h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .profile p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Summary */
+  .summary {
+    margin-bottom: 20px;
+  }
+  
+  .summary h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .summary p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  /* Experience */
+  .experience {
+    margin-bottom: 20px;
+  }
+  
+  .experience h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .experience .job {
+    margin-bottom: 15px;
+  }
+  
+  .experience h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .experience p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .experience ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+  
+  .experience li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Skills */
+  .skills {
+    margin-bottom: 20px;
+  }
+  
+  .skills h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  
+  .skills li {
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Additional Styling (Optional) */
+  /* Customize link styles */
+  a {
+    color: #0077B5;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Add more styling as needed */
+  
