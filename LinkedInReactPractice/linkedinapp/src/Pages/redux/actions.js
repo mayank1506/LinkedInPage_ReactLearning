@@ -9,6 +9,13 @@ export const updateProfile = (profileData) => {
   };
 };
 
+export const updateAbout = (about) => {
+  return {
+    type: "UPDATE_ABOUT",
+    payload: { about },
+  };
+};
+
 export const addSkill = (skill) => {
   return {
     type: "ADD_SKILL",

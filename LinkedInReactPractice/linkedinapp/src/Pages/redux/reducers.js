@@ -52,6 +52,14 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         education: state.education.filter((_, index) => index !== action.payload.index),
       };
+      case "UPDATE_ABOUT":
+        return {
+          ...state,
+          user: {
+            ...state.user,
+            about: action.payload.about,
+          },
+        };
     default:
       return state;
   }

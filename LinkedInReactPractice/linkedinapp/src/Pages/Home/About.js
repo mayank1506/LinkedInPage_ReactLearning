@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./About.css";
+import { updateProfile } from "../redux/actions";
 
 
 const About = (props) => {
@@ -8,6 +9,12 @@ const About = (props) => {
   const dispatch = useDispatch();
   const [about, setAbout] = useState(user.about || "");
 
+  
+
+  const onChangeAbout = (e) => {
+    setAbout(e.target.value);
+    dispatch(updateProfile({ about }));
+  };
   return (
     <div className="container">
       <div className="profile-section">
@@ -19,7 +26,7 @@ const About = (props) => {
                 type="text"
                 placeholder="Add About"
                 value={about}
-                onChange={(e) => setAbout(e.target.value)}
+                onChange={onChangeAbout}
               />
             ) : (
               <p>{about}</p>
