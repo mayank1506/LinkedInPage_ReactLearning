@@ -90,7 +90,7 @@ const Profile = () => {
         {(
           <button onClick={handleSaveProfile}>Save</button>
         )}
-        {/* <About edit={editing}/> */}
+        <About edit={editing}/>
         <Skills edit={editing}/>
         <Education edit={editing}/>
         

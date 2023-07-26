@@ -22,7 +22,7 @@ const Dashboard = () => {
           <button className="edit-button" onClick={onEdit}>
             Edit
           </button>
-          {/* <About edit={false} /> */}
+          <About edit={false} />
           <Skills edit={false} />
           <Education edit={false} />
         </div>
