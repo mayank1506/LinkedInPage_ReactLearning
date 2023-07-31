@@ -1,44 +1,68 @@
-import { combineReducers } from 'redux';
-import { LOGIN_SUCCESS, ADD_SKILL, DELETE_SKILL,ADD_EDUCATION,DELETE_EDUCATION } from './actions';
+// import { loginSuccess } from "./actions";
+// import { updateProfile } from "./actions";
+// import { updateAbout } from "./actions";
+// import { addSkill } from "./actions";
+// import { deleteSkill } from "./actions";
+// import { addEducation } from "./actions";
+// import { deleteEducation } from "./actions";
+// import { addExperience } from "./actions";
+// import { deleteExperience } from "./actions";
 
-const userReducer = (state = { isLoggedIn: false }, action) => {
+
+const initialState = {
+  user: {
+    about: "",
+  },
+  skills: [],
+  education: [],
+  experience: [],
+
+};
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_SUCCESS:
+    case "ADD_SKILL":
       return {
         ...state,
-        isLoggedIn: true,
+        skills: [...state.skills, action.payload.skill],
       };
+    case "DELETE_SKILL":
+      return {
+        ...state,
+        skills: state.skills.filter((_, index) => index !== action.payload.index),
+      };
+    case "ADD_EDUCATION":
+      return {
+        ...state,
+        education: [...state.education, action.payload.education],
+      };
+    case "DELETE_EDUCATION":
+      return {
+        ...state,
+        education: state.education.filter((_, index) => index !== action.payload.index),
+      };
+      case "UPDATE_ABOUT":
+        return {
+          ...state,
+          user: {
+            ...state.user,
+            about: action.payload.about,
+          },
+        };
+      case "ADD_EXPERIENCE":
+        return {
+          ...state,
+          experience: [...state.experience, action.payload.experience],
+        };
+      case "DELETE_EXPERIENCE":
+        return {
+          ...state,
+          experience: state.experience.filter((_, index) => index !== action.payload.index),
+        };
+
     default:
       return state;
   }
 };
 
-const skillsReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD_SKILL:
-      return [...state, action.payload];
-    case DELETE_SKILL:
-      return state.filter((_, index) => index !== action.payload);
-    default:
-      return state;
-  }
-};
-
-const educationReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD_EDUCATION:
-      return [...state, action.payload];
-    case DELETE_EDUCATION:
-      return state.filter((_, index) => index !== action.payload);
-    default:
-      return state;
-  }
-};
-
-const rootReducer = combineReducers({
-  user: userReducer,
-  skills: skillsReducer,
-  education: educationReducer
-});
-
-export default rootReducer;
+export default profileReducer;

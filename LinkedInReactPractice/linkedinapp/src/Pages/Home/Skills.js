@@ -1,19 +1,12 @@
-import React,{useState} from "react";
-import { useSelector,useDispatch } from "react-redux";
-
-import {
-    addSkill,
-    deleteSkill,
-}from "../redux/actions";
-
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import "./Skills.css";
+import { addSkill, deleteSkill} from "../redux/actions";
 
 function Skills(props) {
   const skills = useSelector((state) => state.skills);
   const dispatch = useDispatch();
-
-  const [newSkill, setNewSkill] = useState(
-    localStorage.getItem("newSkill") || ""
-  );
+  const [newSkill, setNewSkill] = useState("");
 
   const handleAddSkill = () => {
     if (newSkill.trim() !== "") {
@@ -25,6 +18,7 @@ function Skills(props) {
   const handleDeleteSkill = (index) => {
     dispatch(deleteSkill(index));
   };
+
   return (
     <>
       <div className="skills-section">
@@ -35,9 +29,7 @@ function Skills(props) {
               {skills.map((skill, index) => (
                 <li key={index} className="skills-list-item">
                   {skill}
-                  <button onClick={() => handleDeleteSkill(index)}>
-                    Delete
-                  </button>
+                  <button onClick={() => handleDeleteSkill(index)}>Delete</button>
                 </li>
               ))}
             </ul>
@@ -54,7 +46,13 @@ function Skills(props) {
             )}
           </>
         ) : (
-          <p>{newSkill}</p>
+          <ul className="skills-list">
+            {skills.map((skill, index) => (
+              <li key={index} className="skills-list-item">
+                {skill}
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </>

@@ -54,7 +54,7 @@ function Header() {
               <button>
                 <a
                   href="/"
-                  
+                  onClick={handleLogoutClick}
                   style={{ color: "black" }}
                 >
                   Logout

@@ -1,127 +1,136 @@
-/* CSS for HomePage Component */
-.homepage {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+body {
+  background: #67B26F;
+  background: linear-gradient(to right, #1b82be, #0f5ea0);
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #000;
+}
+
+.master-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+  /* padding: 50px; */
+  margin: 0 auto;
+  width: 200%;
+  max-width: 1200px;
+}
+.dashboard-container {
+  /* margin-top: -31.70%; */
+  /* display: flex; */
+  width: 100%;
+  /* margin-top: 4%; */
+  align-items: flex-start;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.dashboard-profile-section {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.edit-button {
+  background-color: #0073b1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  align-self: flex-end;
+  margin-right: 0%;
+  margin-left: 90%;
+}
+
+.edit-button:hover {
+  background-color: #005a8e;
+}
+
+.skills-section {
+  margin-bottom: 20px;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.add-section {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-section input[type="text"],
+.add-section textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.add-section button {
+  background-color: #0073b1;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-section button:hover {
+  background-color: #005a8e;
+}
+
+.dashboard-Photo {
+  /* display: flex; */
+  width: 35%;
+  border-radius: 100px;
+  background-color: #ffffff;
+  margin-top: 4%;
+  height: 225px;
   
-  /* Header */
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Profile */
-  .profile {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-  .profile h2 {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  
-  .profile p {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  /* Summary */
-  .summary {
-    margin-bottom: 20px;
-  }
-  
-  .summary h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .summary p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-  }
-  
-  /* Experience */
-  .experience {
-    margin-bottom: 20px;
-  }
-  
-  .experience h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .experience .job {
-    margin-bottom: 15px;
-  }
-  
-  .experience h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  
-  .experience p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  .experience ul {
-    list-style: disc;
-    margin-left: 20px;
-  }
-  
-  .experience li {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  /* Skills */
-  .skills {
-    margin-bottom: 20px;
-  }
-  
-  .skills h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .skills ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-  
-  .skills li {
-    font-size: 14px;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Additional Styling (Optional) */
-  /* Customize link styles */
-  a {
-    color: #0077B5;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Add more styling as needed */
-  
+}
+
+.dashboard-Photo .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 8px solid #0664bb;
+  border-radius: 50%;
+}
+.dashboard-Photo h3 {
+  font-size: 16px;
+  color: #5f2402;
+  font-weight: 600;
+  font-style: italic;
+  font-variant: small-caps;
+}
+
+.dashboard-Photo p {
+  font-size: 16px;
+  color: #5f2402;
+  font-weight: 600;
+  font-style: italic;
+  font-variant: small-caps;
+}

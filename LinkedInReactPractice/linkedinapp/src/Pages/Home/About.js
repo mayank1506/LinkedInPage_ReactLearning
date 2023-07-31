@@ -1,48 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "../Profile.css";
-import {
-  updateProfile,
-  addSkill,
-  deleteSkill,
-  addEducation,
-  deleteEducation,
-} from "../redux/actions";
+import "./About.css";
+import { updateAbout } from "../redux/actions";
 
-const About = () => {
-  const user = useSelector((state) => state.user);
+
+const About = (props) => {
+  const user = useSelector((state) => state.user.about);
   const dispatch = useDispatch();
+  const [about, setAbout] = useState(user.about || "");
 
-  const [editing, setEditing] = useState(false);
-  const [about, setAbout] = useState(localStorage.getItem("about") || (user.about || ""));
+  
 
-
-
-
+  const onChangeAbout = (e) => {
+    setAbout(e.target.value);
+    dispatch(updateAbout({about: e.target.value}));
+  };
+ 
   return (
     <div className="container">
-      <div className="profile-section">
-        
         <div className="about-section">
           <h3>About</h3>
           <div className="add-section">
-            {editing ? (
+            {props.edit ? (
               <textarea
                 type="text"
                 placeholder="Add About"
                 value={about}
-                onChange={(e) => setAbout(e.target.value)}
+                onChange={onChangeAbout}
               />
             ) : (
               <p>{about}</p>
             )}
-            {/* <button onClick={handleAddAbout}>Add</button> */}
           </div>
         </div>
-        
-          
-        
-      </div>
     </div>
   );
 };
