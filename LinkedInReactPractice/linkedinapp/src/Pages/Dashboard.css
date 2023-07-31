@@ -1,10 +1,31 @@
+body {
+  background: #67B26F;
+  background: -webkit-linear-gradient(to right, #4ca2cd, #022165); 
+  background: linear-gradient(to right, #4ca2cd, #1c33a7);
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #000;
+}
 
-.dashboard-container {
+.master-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
   justify-content: center;
+  /* padding: 50px; */
+  margin: 0 auto;
+  width: 200%;
+  max-width: 1200px;
+}
+.dashboard-container {
+  /* margin-top: -31.70%; */
+  /* display: flex; */
+  width: 100%;
+  /* margin-top: 4%; */
+  align-items: flex-start;
   padding: 20px;
+  margin: 0 auto;
 }
 
 .dashboard-profile-section {
@@ -27,6 +48,9 @@
   cursor: pointer;
   font-size: 16px;
   margin-bottom: 20px;
+  align-self: flex-end;
+  margin-right: 0%;
+  margin-left: 90%;
 }
 
 .edit-button:hover {
@@ -76,4 +100,38 @@
 
 .add-section button:hover {
   background-color: #005a8e;
+}
+
+.dashboard-Photo {
+  /* display: flex; */
+  width: 35%;
+  border-radius: 100px;
+  background-color: #fff;
+  margin-top: 4%;
+  height: 225px;
+  
+}
+
+.dashboard-Photo .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%;
+}
+.dashboard-Photo h3 {
+  font-size: 16px;
+  color: #5f2402;
+  font-weight: 600;
+  font-style: italic;
+  font-variant: small-caps;
+}
+
+.dashboard-Photo p {
+  font-size: 16px;
+  color: #5f2402;
+  font-weight: 600;
+  font-style: italic;
+  font-variant: small-caps;
 }

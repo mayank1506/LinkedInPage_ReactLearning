@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Education.css";
-import { addEducation, deleteEducation, updateProfile } from "../redux/actions";
+import { addEducation, deleteEducation } from "../redux/actions";
 
 const Education = (props) => {
   const education = useSelector((state) => state.education);
   const dispatch = useDispatch();
-  
+
   const [newEducation, setNewEducation] = useState({
     school: "",
     degree: "",
@@ -20,7 +20,6 @@ const Education = (props) => {
       newEducation.graduationYear.trim() !== ""
     ) {
       dispatch(addEducation(newEducation));
-      dispatch(updateProfile({ education: [...education, newEducation] }));
       setNewEducation({ school: "", degree: "", graduationYear: "" });
     }
   };
@@ -42,7 +41,11 @@ const Education = (props) => {
                   <p>{edu.degree}</p>
                   <p>{edu.graduationYear}</p>
                 </div>
-                <button onClick={() => handleDeleteEducation(index)}>Delete</button>
+                {props.edit && (
+                  <button onClick={() => handleDeleteEducation(index)}>
+                    Delete
+                  </button>
+                )}
               </li>
             ))}
           </ul>
@@ -52,26 +55,47 @@ const Education = (props) => {
                 type="text"
                 placeholder="School"
                 value={newEducation.school}
-                onChange={(e) =>
-                  setNewEducation({ ...newEducation, school: e.target.value })
-                }
+                onChange={(e) => {
+                  const schoolName = e.target.value;
+                  if (
+                    /^[A-Za-z0-9\s]+$/.test(schoolName) ||
+                    schoolName === ""
+                  ) {
+                    setNewEducation({ ...newEducation, school: schoolName });
+                  }
+                }}
               />
+
               <input
                 type="text"
                 placeholder="Degree"
                 value={newEducation.degree}
-                onChange={(e) =>
-                  setNewEducation({ ...newEducation, degree: e.target.value })
-                }
+                onChange={(e) => {
+                  const degreeName = e.target.value;
+                  if (
+                    /^[A-Za-z0-9\s]+$/.test(degreeName) ||
+                    degreeName === ""
+                  ) {
+                    setNewEducation({ ...newEducation, degree: degreeName });
+                  }
+                }}
               />
+
               <input
                 type="text"
                 placeholder="Graduation Year"
                 value={newEducation.graduationYear}
-                onChange={(e) =>
-                  setNewEducation({ ...newEducation, graduationYear: e.target.value })
-                }
+                onChange={(e) => {
+                  const graduationYear = e.target.value;
+                  if (/^\d*$/.test(graduationYear) || graduationYear === "" && graduationYear.length === 4) {
+                    setNewEducation({ ...newEducation, graduationYear });
+                  }
+                  else{
+                    alert("Graduation Year should be in numbers");
+                  }
+                }}
               />
+
               <button onClick={handleAddEducation}>Add Education</button>
             </div>
           )}

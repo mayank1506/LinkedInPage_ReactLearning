@@ -11,7 +11,6 @@ function Skills(props) {
   const handleAddSkill = () => {
     if (newSkill.trim() !== "") {
       dispatch(addSkill(newSkill));
-      dispatch(updateProfile({ skills: [...skills, newSkill] }));
       setNewSkill("");
     }
   };
