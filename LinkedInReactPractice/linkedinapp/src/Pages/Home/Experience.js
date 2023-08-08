@@ -35,20 +35,40 @@ const Experience = (props) => {
         <div className="experience-section">
           <h3>Experience</h3>
           <ul className="experience-list">
+          <table className="table"> 
+            <tr>
+            
+              <th>Company</th>
+              <th>Position</th>
+              <th>Years Worked</th>
+              {/* <th>Buton</th> */}
+
+            
+            </tr>
             {experience.map((exp, index) => (
-              <li key={index} className="experience-list-item">
-                <div>
-                  <p>{exp.company}</p>
-                  <p>{exp.position}</p>
-                  <p>{exp.yearsWorked}</p>
-                </div>
+              // <li key={index} className="experience-list-item">
+              //   <p>{exp.company}</p>
+              //   <p>{exp.position}</p>
+              //   <p>{exp.yearsWorked}</p>
+              //   {props.edit && (
+              //     <button onClick={() => handleDeleteExperience(index)}>
+              //       Delete
+              //     </button>
+              //   )}
+                <tr>
+                  <td>{exp.company}</td>
+                  <td>{exp.position}</td>
+                  <td>{exp.yearsWorked}</td>
                 {props.edit && (
                   <button onClick={() => handleDeleteExperience(index)}>
                     Delete
                   </button>
                 )}
-              </li>
+                </tr>
+                
+              // </li>
             ))}
+            </table>
           </ul>
           {props.edit && (
             <div className="add-section">
@@ -69,7 +89,6 @@ const Experience = (props) => {
                   }
                 }}
               />
-
               <input
                 type="text"
                 placeholder="Years Worked"

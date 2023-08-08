@@ -1,5 +1,4 @@
 body {
-  background: #67B26F;
   background: linear-gradient(to right, #1b82be, #0f5ea0);
   padding: 0;
   margin: 0;
@@ -10,9 +9,7 @@ body {
 .master-container {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   justify-content: center;
-  /* padding: 50px; */
   margin: 0 auto;
   width: 200%;
   max-width: 1200px;
@@ -41,7 +38,6 @@ body {
 .edit-button {
   background-color: #0073b1;
   color: #fff;
-  border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
@@ -134,3 +130,4 @@ body {
   font-style: italic;
   font-variant: small-caps;
 }
+

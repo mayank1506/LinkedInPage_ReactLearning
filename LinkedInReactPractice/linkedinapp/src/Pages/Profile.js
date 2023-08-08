@@ -5,9 +5,10 @@ import Education from "./Home/Education";
 import About from "./Home/About";
 import { useNavigate } from "react-router-dom";
 import Experience from "./Home/Experience";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
-
+    const isLoggedIn = useSelector((state) => state.user.login);
     const [editing, setEditing] = useState(false);
     useEffect(() => {
     setEditing(true);
@@ -20,7 +21,7 @@ const Profile = () => {
   };
   return (
     <>
-    <div className="container">
+    {isLoggedIn? (<div className="container">
       <div className="profile-section">
         <h2>Profile</h2>
         {(
@@ -31,7 +32,11 @@ const Profile = () => {
         <Education edit={editing}/>   
         <Experience edit={editing}/>
       </div>
-    </div>
+    </div>):
+    (<div>  
+      <h1>Not Logged In</h1>
+      </div>
+      )}
     </>
   );
 };

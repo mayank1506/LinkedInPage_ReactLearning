@@ -33,22 +33,29 @@ const Education = (props) => {
       <div className="profile-section">
         <div className="education-section">
           <h3>Education</h3>
-          <ul className="education-list">
+          
+          <table className="table"> 
+            <tr>
+
+              <th>School</th>
+              <th>Degree</th>
+              <th>Graduation Year</th>
+            </tr>
             {education.map((edu, index) => (
-              <li key={index} className="education-list-item">
-                <div>
-                  <p>{edu.school}</p>
-                  <p>{edu.degree}</p>
-                  <p>{edu.graduationYear}</p>
-                </div>
+              <tr >
+                
+                  <td>{edu.school}</td>
+                  <td>{edu.degree}</td>
+                  <td>{edu.graduationYear}</td>
+                
                 {props.edit && (
                   <button onClick={() => handleDeleteEducation(index)}>
                     Delete
                   </button>
                 )}
-              </li>
+              </tr>
             ))}
-          </ul>
+          </table>
           {props.edit && (
             <div className="add-section">
               <input
@@ -87,9 +94,10 @@ const Education = (props) => {
                 value={newEducation.graduationYear}
                 onChange={(e) => {
                   const graduationYear = e.target.value;
-                  if ((/^\d*$/.test(graduationYear) || graduationYear === "") && graduationYear.length === 4) {
+                  if (/^\d*$/.test(graduationYear) || graduationYear === "") {
                     setNewEducation({ ...newEducation, graduationYear });
                   }
+                  
                   else{
                     alert("Graduation Year should be in numbers");
                   }

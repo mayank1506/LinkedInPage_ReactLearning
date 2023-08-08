@@ -1,10 +1,13 @@
 import React from "react";
-import "./Header.css"
+import "./Header.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 function Header() {
   const Navigate = useNavigate();
+  const logout = useSelector((state) => state.user.login);
+  const dispatch = useDispatch();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -13,6 +16,7 @@ function Header() {
   };
 
   const handleLogoutClick = () => {
+    dispatch(logout());
     Navigate("/");
   };
 
@@ -21,10 +25,13 @@ function Header() {
   };
   return (
     <div className="navbar">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      ></link>
       <div className="nav-details">
         <div class="search-container">
-          <form onSubmit={'/'}>
+          <form onSubmit={"/"}>
             <input
               type="text"
               placeholder="Search.."
@@ -34,18 +41,21 @@ function Header() {
             <button type="submit">search</button>
           </form>
         </div>
-        <a href="/Dashboard"><i class="fa fa-linkedin"></i></a>
-        <a href="/Dashboard"><i class="fa fa-home"></i></a>
+        <a href="/Dashboard">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="/Dashboard">
+          <i class="fa fa-home"></i>
+        </a>
         <a href="/My-Network">My Network</a>
         <a href="/Message">Message</a>
         <a href="/Notiifcations">Notiifcations</a>
       </div>
       <div className="navbar-profile">
         <h3>
-          
-          <button  onClick={handleDropdownClick}><i class="fa fa-user" aria-hidden="true"></i></button>
-          
-          
+          <button onClick={handleDropdownClick}>
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </button>
         </h3>
 
         {isDropdownOpen && (
@@ -59,9 +69,14 @@ function Header() {
                 >
                   Logout
                 </a>
-                <a href="/Profile" onClick={handleProfileClick}>Profile</a>
+                <a
+                  href="/Profile"
+                  onClick={handleProfileClick}
+                  style={{ color: "black" }}
+                >
+                  Profile
+                </a>
               </button>
-              
             </ul>
           </div>
         )}

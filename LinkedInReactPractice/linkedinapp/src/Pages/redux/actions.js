@@ -1,7 +1,12 @@
-
 export const loginSuccess = () => ({
   type: "LOGIN_SUCCESS",
 });
+
+export const logout = () => {
+  return {
+    type: "LOGOUT",
+  };
+};
 
 export const updateAbout = (about) => {
   return {
@@ -10,11 +15,10 @@ export const updateAbout = (about) => {
   };
 };
 
-
 export const addSkill = (skill) => {
   return {
     type: "ADD_SKILL",
-    payload: {  'skill' : skill },
+    payload: { skill: skill },
   };
 };
 

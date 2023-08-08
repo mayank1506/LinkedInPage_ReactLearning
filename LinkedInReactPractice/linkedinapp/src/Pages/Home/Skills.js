@@ -14,6 +14,7 @@ function Skills(props) {
       setNewSkill("");
     }
   };
+  // const doNothing=0;
 
   const handleDeleteSkill = (index) => {
     dispatch(deleteSkill(index));
@@ -21,10 +22,12 @@ function Skills(props) {
 
   return (
     <>
+      
       <div className="skills-section">
         <h3>Skills</h3>
         {props.edit ? (
           <>
+          
             <ul className="skills-list">
               {skills.map((skill, index) => (
                 <li key={index} className="skills-list-item">
@@ -33,7 +36,8 @@ function Skills(props) {
                 </li>
               ))}
             </ul>
-            {props.edit && (
+            
+            
               <div className="add-section">
                 <input
                   type="text"
@@ -43,7 +47,7 @@ function Skills(props) {
                 />
                 <button onClick={handleAddSkill}>Add Skill</button>
               </div>
-            )}
+            
           </>
         ) : (
           <ul className="skills-list">

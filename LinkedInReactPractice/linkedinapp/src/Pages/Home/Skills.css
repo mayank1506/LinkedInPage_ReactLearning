@@ -9,7 +9,10 @@
   }
   
   .skills-list {
-    list-style: none;
+    
+
+
+    list-style: square;
     padding: 0;
     margin: 0;
   }
@@ -25,7 +28,6 @@
   .skills-list-item:last-child {
     border-bottom: none;
   }
-  
   .skills-list-item button {
     background-color: #e74c3c;
     color: white;
